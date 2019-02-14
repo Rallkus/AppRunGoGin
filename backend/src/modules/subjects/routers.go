@@ -2,7 +2,7 @@ package subjects
 
 import (
 	"errors"
-	"common"
+	"modules/common"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

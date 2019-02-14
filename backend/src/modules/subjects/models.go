@@ -2,7 +2,7 @@ package subjects
 
 import (
 	"strconv"
-	"common"
+	"modules/common"
 )
 
 type Subject struct {
