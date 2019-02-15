@@ -1,6 +1,7 @@
 package subjects
 
 import (
+	"fmt"
 	"strconv"
 	"modules/common"
 )
@@ -17,6 +18,7 @@ func FindManySubjects(limit, offset string) ([]Subject, int, error) {
 	var count int
 
 	offset_int, err := strconv.Atoi(offset)
+	fmt.Println(err)
 	if err != nil {
 		offset_int = 0
 	}

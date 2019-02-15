@@ -15,7 +15,7 @@ var DB *gorm.DB
 
 // Opening a database and save the reference to `Database` struct.
 func Init() *gorm.DB {
-	db, err := gorm.Open("sqlite3", "./../gorm.db")
+	db, err := gorm.Open("sqlite3", "./database/gorm.db")
 	if err != nil {
 		fmt.Println("db err: ", err)
 	}

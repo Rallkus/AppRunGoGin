@@ -8,6 +8,7 @@ import (
   "github.com/jinzhu/gorm"
   _ "github.com/jinzhu/gorm/dialects/sqlite"
   "modules/subjects"
+  "modules/common"
 )
 type Person struct {
  ID uint `json:”id”`
@@ -22,7 +23,7 @@ func Migrate(db *gorm.DB) {
 
 func main() {
 
-  db, _ := gorm.Open("sqlite3", "./database/gorm.db")
+  db := common.Init()
   Migrate(db)
   defer db.Close()
   // Set the router as the default one shipped with Gin
@@ -40,6 +41,7 @@ func main() {
       })
     })
   }
+  subjects.SubjectsRoutes(api.Group("/subjects"))
   // Our API will consit of just two routes
   // /jokes - which will retrieve a list of jokes a user can see
   // /jokes/like/:jokeID - which will capture likes sent to a particular joke

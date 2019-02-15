@@ -7,14 +7,13 @@ import (
 	"net/http"
 )
 
-func getSubjects(router *gin.RouterGroup) {
-	router.GET("/", SubjectsList)
+func SubjectsRoutes(router *gin.RouterGroup) {
+	router.GET("/", getAllSubjects)
 }
 
-func SubjectsList(c *gin.Context) {
-	limit := c.Query("limit")
-	offset := c.Query("offset")
-	subjectModels, modelCount, err := FindManySubjects(limit, offset)
+
+func getAllSubjects(c *gin.Context) {
+	subjectModels, modelCount, err := FindManySubjects("20", "20")
 	if err != nil {
 		c.JSON(http.StatusNotFound, common.NewError("subjects", errors.New("Something went wrong")))
 		return
