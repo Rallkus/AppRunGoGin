@@ -13,7 +13,7 @@ func SubjectsRoutes(router *gin.RouterGroup) {
 
 
 func getAllSubjects(c *gin.Context) {
-	subjectModels, modelCount, err := FindManySubjects("20", "20")
+	subjectModels, modelCount, err := FindManySubjects("20", "0")
 	if err != nil {
 		c.JSON(http.StatusNotFound, common.NewError("subjects", errors.New("Something went wrong")))
 		return

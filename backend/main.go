@@ -41,6 +41,8 @@ func main() {
       })
     })
   }
+  subject := subjects.Subject{ID:2, Slug:"server", Subject : "Server"}
+  db.Save(&subject)
   subjects.SubjectsRoutes(api.Group("/subjects"))
   // Our API will consit of just two routes
   // /jokes - which will retrieve a list of jokes a user can see
